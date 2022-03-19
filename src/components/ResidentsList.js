@@ -6,14 +6,16 @@ const RickList = ({ characters }) => {
 
     console.log(characters) //sólo para visualizar lo que estoy recibiendo
 
+   const totalPages = Math.ceil(characters?.length / 3);
+
     const [currentPage, setCurrentPage] = useState(0);
 
     const filtered = characters.slice(currentPage, currentPage + 3)
 
     const buttNext = () =>{
-        if(characters.length >= currentPage)
+        if(currentPage <= totalPages)
         setCurrentPage(currentPage + 3)
-      }
+      } 
     
       const buttPrevious = () =>{
         if(currentPage > 0)
